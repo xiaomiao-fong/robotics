@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tommy Lin — Robotics</title>
+<!--
+  DRAFT personal site for NUS lab outreach. Single self-contained file.
+  PLACEHOLDERS TO FILL (search "TODO"):
+    - Demo video embed URL (SAFMC 2026)
+    - cv.pdf  (copy the built PDF from ../out/cv.pdf next to this file before publishing)
+    - safmc-2026-technical-summary.pdf  (not written yet)
+    - sim clips / PCB photos (project images)
+    - footer location
+-->
+<style>
+  :root {
+    --accent: #1F3A5F;
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --line: #e4e4e4;
+    --bg: #ffffff;
+    --max: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    max-width: var(--max); margin: 0 auto; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { font-weight: 700; color: var(--ink); }
+  nav a { margin-left: 18px; font-size: 0.92rem; color: var(--muted); }
+
+  /* layout */
+  main { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  section { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 2.3rem; line-height: 1.15; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h1 .romanized { display: block; font-size: 1rem; font-weight: 500; color: var(--muted); margin-top: 6px; }
+  .tagline { color: var(--accent); font-size: 1.08rem; margin: 0 0 18px; }
+  .intro { color: var(--ink); max-width: 64ch; margin: 0 0 22px; }
+
+  /* buttons */
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 9px 16px; border-radius: 6px;
+    font-size: 0.92rem; font-weight: 600; border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.primary:hover { background: #16304e; text-decoration: none; }
+  .btn.ghost { color: var(--accent); background: #fff; }
+  .btn.ghost:hover { background: #f3f6fa; text-decoration: none; }
+
+  /* projects */
+  h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 24px; }
+  .project { margin-bottom: 40px; }
+  .project:last-child { margin-bottom: 0; }
+  .project h3 { font-size: 1.25rem; margin: 0 0 2px; }
+  .project .meta { color: var(--muted); font-size: 0.88rem; margin: 0 0 12px; }
+  .project p { margin: 0 0 12px; max-width: 66ch; }
+  .links a { margin-right: 18px; font-size: 0.92rem; font-weight: 600; }
+
+  /* media: 16:9 video + image placeholders */
+  .video { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 14px; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+  .ph {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    background: #f6f7f9; border: 1px dashed #c4ccd6; border-radius: 8px;
+    color: #8a93a0; font-size: 0.9rem; padding: 16px;
+  }
+  .ph.video-ph { position: absolute; inset: 0; }
+  .shots { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 14px; }
+  .shots .ph { flex: 1 1 0; min-width: 160px; aspect-ratio: 4 / 3; }
+
+  /* footer */
+  footer { max-width: var(--max); margin: 0 auto; padding: 28px 20px 48px; color: var(--muted); font-size: 0.9rem; }
+  footer a { color: var(--muted); }
+  footer .sep { margin: 0 10px; color: #ccc; }
+
+  @media (max-width: 560px) {
+    h1 { font-size: 1.9rem; }
+    section { padding: 34px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <span class="brand">Tommy Lin</span>
+    <nav>
+      <a href="#projects">Projects</a>
+      <!-- TODO: copy built ../out/cv.pdf next to this file before publishing -->
+      <a href="cv.pdf">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ABOUT (top of page) -->
+  <section id="about">
+    <h1>Tommy Lin
+      <span class="romanized">Lin Tzu-Chun</span>
+    </h1>
+    <p class="tagline">Bridging real-robot autonomy (ROS&nbsp;2 / PX4, embedded hardware) and embodied, agentic AI.</p>
+    <p class="intro">
+      I'm a final-year Computer Science student at NYCU, currently on exchange at NUS (Fall&nbsp;2026).
+      I build robots end-to-end &mdash; from PCBs and embedded firmware to ROS&nbsp;2 / PX4 autonomy stacks &mdash;
+      and I'm now moving toward embodied, agentic AI: multi-robot coordination and learning-based planning,
+      brought onto real hardware through sim-to-real.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#safmc-2026">&#9658;&nbsp;Watch demo</a>
+      <a class="btn ghost" href="cv.pdf">Download CV</a>
+      <a class="btn ghost" href="mailto:tomylin567@gmail.com">Email</a>
+      <a class="btn ghost" href="https://github.com/xiaomiao-fong">GitHub</a>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <!-- SAFMC 2026 — flagship, real demo -->
+    <div class="project" id="safmc-2026">
+      <h3>SAFMC 2026 &mdash; High-Speed Drone Flock</h3>
+      <p class="meta">Project Lead &middot; 2026</p>
+      <div class="video">
+        <!-- TODO: replace this placeholder with the real embed, e.g.
+             <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="2-drone gate-passing demo"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                     allowfullscreen></iframe>
+        -->
+        <div class="ph video-ph">Demo video &mdash; embed the 2-drone gate-passing run here (YouTube / Drive)</div>
+      </div>
+      <p>
+        A flock of 2&ndash;3 autonomous drones built to race through a gated indoor course with no human
+        control, coordinated by a finite-state machine and a &ldquo;Mediator&rdquo; that schedules each drone
+        and keeps the flock collision-free. As project lead, I directed full-system evaluation and design
+        &mdash; avionics, software stack, and race strategy. We demonstrated live two-drone gate passing; the
+        full flock is validated in simulation.
+      </p>
+      <p class="links">
+        <a href="#safmc-2026">&#9658; Watch the 2-drone demo</a>
+        <!-- TODO: technical summary PDF not written yet -->
+        <a href="safmc-2026-technical-summary.pdf">Technical summary (PDF)</a>
+      </p>
+    </div>
+
+    <!-- SAFMC 2025 -->
+    <div class="project" id="safmc-2025">
+      <h3>SAFMC 2025 &mdash; Category D2</h3>
+      <p class="meta">Team member &middot; 2025 &middot; 4th place</p>
+      <div class="shots">
+        <!-- TODO: add simulation clips / screenshots -->
+        <div class="ph">Sim clip / screenshot</div>
+        <div class="ph">Sim clip / screenshot</div>
+      </div>
+      <p>
+        A four-drone system for an indoor search-and-rescue mission &mdash; searching an unknown space for
+        hidden rooms, avoiding obstacles, and delivering supplies. I contributed to the ROS&nbsp;2 / PX4
+        stack, BUG/APF path planners, ArUco-marker detection, and Gazebo simulation. Team placed
+        <strong>4th</strong>.
+      </p>
+    </div>
+
+    <!-- ExpressLRS -->
+    <div class="project" id="elrs">
+      <h3>ExpressLRS RC Radio Modules</h3>
+      <p class="meta">Personal project</p>
+      <div class="shots">
+        <!-- TODO: add PCB photos / KiCad renders -->
+        <div class="ph">PCB photo / KiCad render</div>
+        <div class="ph">PCB photo / KiCad render</div>
+      </div>
+      <p>
+        ExpressLRS is an open-source, low-latency long-range radio-control link for drones and RC aircraft.
+        I self-designed the transmitter (TX) and receiver (RX) modules &mdash; STM32 + SX1280 &mdash; through
+        full KiCad PCB layout; currently in pre-validation.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <a href="mailto:tomylin567@gmail.com">tomylin567@gmail.com</a>
+  <span class="sep">&middot;</span>
+  <a href="https://github.com/xiaomiao-fong">github.com/xiaomiao-fong</a>
+  <span class="sep">&middot;</span>
+  <span>Singapore</span>
+</footer>
+
+</body>
+</html>
