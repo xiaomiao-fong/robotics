@@ -5,13 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tommy Lin — Robotics</title>
 <!--
-  DRAFT personal site for NUS lab outreach. Single self-contained file.
-  PLACEHOLDERS TO FILL (search "TODO"):
-    - Demo video embed URL (SAFMC 2026)
-    - cv.pdf  (copy the built PDF from ../out/cv.pdf next to this file before publishing)
-    - safmc-2026-technical-summary.pdf  (not written yet)
-    - sim clips / PCB photos (project images)
-    - footer location
+  Personal site for NUS lab outreach. Single self-contained file.
+  SCOPE RULE (confirmed 12 Aug 2026): autonomy ran ONLY in simulation; live flights were
+  manually piloted. Never pair "live" with "autonomous" anywhere on this page.
+  REMAINING TODOs (search "TODO"): Gazebo sim-run video embed; sim clips / PCB photos.
 -->
 <style>
   :root {
@@ -128,7 +125,7 @@
       brought onto real hardware through sim-to-real.
     </p>
     <div class="actions">
-      <a class="btn primary" href="#safmc-2026">&#9658;&nbsp;Watch demo</a>
+      <a class="btn primary" href="#safmc-2026">See the flagship project</a>
       <a class="btn ghost" href="cv.pdf">Download CV</a>
       <a class="btn ghost" href="mailto:tomylin567@gmail.com">Email</a>
       <a class="btn ghost" href="https://github.com/xiaomiao-fong">GitHub</a>
@@ -144,23 +141,21 @@
       <h3>SAFMC 2026 &mdash; High-Speed Drone Flock</h3>
       <p class="meta">Project Lead &middot; 2026</p>
       <div class="video">
-        <!-- TODO: replace this placeholder with the real embed, e.g.
-             <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="2-drone gate-passing demo"
+        <!-- TODO: record a Gazebo full-flock mission run and embed it here, e.g.
+             <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Full-flock mission in Gazebo"
                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                      allowfullscreen></iframe>
         -->
-        <div class="ph video-ph">Demo video &mdash; embed the 2-drone gate-passing run here (YouTube / Drive)</div>
+        <div class="ph video-ph">Simulation demo &mdash; full flock mission in Gazebo (video coming soon)</div>
       </div>
       <p>
-        A flock of 2&ndash;3 autonomous drones built to race through a gated indoor course with no human
-        control, coordinated by a finite-state machine and a &ldquo;Mediator&rdquo; that schedules each drone
+        A system designed to race a flock of 2&ndash;3 drones through a gated indoor course autonomously,
+        coordinated by a finite-state machine and a &ldquo;Mediator&rdquo; that schedules each drone
         and keeps the flock collision-free. As project lead, I directed full-system evaluation and design
-        &mdash; avionics, software stack, and race strategy. We demonstrated live two-drone gate passing; the
-        full flock is validated in simulation.
+        &mdash; avionics, software stack, and race strategy. The full autonomy stack is validated in Gazebo
+        simulation, and we built and flight-tested the two-drone platform.
       </p>
       <p class="links">
-        <a href="#safmc-2026">&#9658; Watch the 2-drone demo</a>
-        <!-- TODO: technical summary PDF not written yet -->
         <a href="safmc-2026-technical-summary.pdf">Technical summary (PDF)</a>
       </p>
     </div>
